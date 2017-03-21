@@ -1,4 +1,38 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+def VERSION = ''
+def ARTIFACT_ID = ''
+def GROUP_ID = ''
+def REPO = ''
+def USERNAME = ''
+def PASSWORD = ''
+
+if (hasProperty('NEXUS_VERSION'))
+    VERSION = NEXUS_VERSION
+if (hasProperty('NEXUS_ARTIFACT_ID'))
+    ARTIFACT_ID = NEXUS_ARTIFACT_ID
+if (hasProperty('NEXUS_GROUP_ID'))
+    GROUP_ID = NEXUS_GROUP_ID
+if (hasProperty('NEXUS_REPO'))
+    REPO = NEXUS_REPO
+if (hasProperty('NEXUS_USERNAME'))
+    USERNAME = NEXUS_USERNAME
+if (hasProperty('NEXUS_PASSWORD'))
+    PASSWORD = NEXUS_PASSWORD
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: REPO) {
+                authentication(userName: USERNAME, password: PASSWORD)
+            }
+            pom.version = VERSION
+            pom.artifactId = ARTIFACT_ID
+            pom.groupId = GROUP_ID
+        }
+    }
+}
 
 android {
     compileSdkVersion 25
