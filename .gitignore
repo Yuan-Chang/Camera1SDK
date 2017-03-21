@@ -1,9 +1,51 @@
-*.iml
+#iOS
+#ignore private workspace stuff added by Xcode4
+xcuserdata
+project.xcworkspace
+
+#xcode specific
+build/*
+*.pbxuser
+*.mode2v3
+*.mode1v3
+*.perspective
+*.perspectivev3
+*~.nib
+
+#Android  
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+#.classpath
+#.project
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.svn
+.idea
+ImageCaptureDemo/build
+ImageCaptureSDK/build
 .gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/captures
-.externalNativeBuild
+*.iml
+prototype/
+jacoco.exec
+
